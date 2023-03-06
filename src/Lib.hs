@@ -34,7 +34,7 @@ distributionForPirates prevDist =
 -- is killed as argument.
 piratesByMinForYay :: (Integral a, Integral b) => [a] -> [(b, a)]
 piratesByMinForYay prevDist =
-  sortBy (\(_, x) (_, y) -> compare x y) (zip [1..] (minForYay prevDist))
+  sortBy (\(_, x) (_, y) -> compare x y) (zip [1..] (map (+ 1) prevDist))
 
 -- | Yay's needed from non-captain pirates to pass the vote.
 --
@@ -43,9 +43,6 @@ neededYays :: (Integral a) => a -> a
 neededYays numPirates =
   quot piratesAndCaptain 2 - if rem piratesAndCaptain 2 == 0 then 1 else 0
   where piratesAndCaptain = numPirates + 1
-
-minForYay :: (Num a) => [a] -> [a]
-minForYay = map (+ 1)
 
 mapFromIndex :: (a -> a) -> Int -> [a] -> [a]
 mapFromIndex _ _ [] = []
