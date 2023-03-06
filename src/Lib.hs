@@ -48,7 +48,9 @@ minForYay :: (Num a) => [a] -> [a]
 minForYay = map (+ 1)
 
 mapFromIndex :: (a -> a) -> Int -> [a] -> [a]
-mapFromIndex func index xs = (take index xs) ++ (map func (drop index xs))
+mapFromIndex _ _ [] = []
+mapFromIndex func index (x:xs) =
+  if index == 0 then map func (x:xs) else x:(mapFromIndex func (index - 1) xs)
 
 sortByFst :: (Integral a) => [(a, b)] -> [(a, b)]
 sortByFst = sortBy (\(x, _) (y, _) -> compare x y)
