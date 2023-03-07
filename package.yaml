@@ -46,3 +46,7 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - pirate-riddle
+    - hspec
+    - hspec-contrib
+    - QuickCheck
+    - HUnit
