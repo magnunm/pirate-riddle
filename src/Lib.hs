@@ -12,7 +12,9 @@ import           Data.List (sortBy)
 distribution :: Int -> [Int]
 distribution 1 = [100]
 distribution n =
-  (100 - sum distributionTail) : distributionTail
+  if n <= 0
+    then error "Number of pirates must be positive"
+    else (100 - sum distributionTail) : distributionTail
   where distributionTail = distributionForPirates (distribution (n - 1))
 
 -- | The distribution the Captain should suggest for his subordinate pirates.

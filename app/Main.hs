@@ -17,7 +17,9 @@ parseArgs (x:_) = case x of
   "--help" -> usage >> exitSuccess
   _        -> case (readMaybe x :: Maybe Int) of
     Nothing -> putStrLn "Number of pirates must be an integer" >> usage >> exitFail
-    Just numPirates -> pure numPirates
+    Just numPirates -> if numPirates <= 0
+      then putStrLn "Number of pirates must be a positive integer" >> usage >> exitFail
+      else pure numPirates
 
 usage = putStrLn "Usage: pirate-riddle [integer number of pirates]"
 
