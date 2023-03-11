@@ -30,8 +30,7 @@ distributionForPirates prevDist =
 --
 -- From lowest to highest minimum required for a yay. Returned together with
 -- their index from the captain, starting at 1 for the first pirate after the
--- captain. Takes the Nash equilibrium distribution of coins if the captain
--- is killed as argument.
+-- captain. Takes the optimal distribution of coins if the captain is killed.
 piratesByMinForYay :: (Integral a, Integral b) => [a] -> [(b, a)]
 piratesByMinForYay prevDist =
   sortBy (\(_, x) (_, y) -> compare x y) (zip [1..] (map (+ 1) prevDist))
