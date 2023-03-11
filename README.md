@@ -33,7 +33,7 @@ Run the solver using [stack](https://docs.haskellstack.org/en/stable/):
 
 ```sh
 stack build
-stack exec pirate-riddle-exe
+stack exec pirate-riddle-exe -- 5
 ```
 
 Run the [Hspec](https://hspec.github.io) test suite:
