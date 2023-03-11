@@ -26,6 +26,9 @@ Mechanics](https://www.popularmechanics.com/science/math/a25367/riddle-of-the-we
 > the coins?
 
 The code in this repo solves this riddle with an arbitrary number of pirates.
+The 100 coins of the original riddle can only be distributed optimally to a
+maximum of 200 pirates. After that the solver increases the total number of
+coins by one for each pirate over number 200.
 
 ## Scripts
 
